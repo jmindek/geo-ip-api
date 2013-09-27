@@ -14,7 +14,7 @@
       (is (= (:status response) 404))))
 
   (testing "get city-state route exists"
-    (let [response (app (request :get "/city-state"))]
+    (let [response (app (request :get "/city-state/1"))]
       (is (= (:status response) 200))))
   
   (testing "documentation route exists"
@@ -26,7 +26,15 @@
       (is (= (:status response) 200))))
 )
 
-(deftest verify-city-state-behavior
-  (testing "returns error message for bad IP address"
-    (let [response (app (request :get "/city-state/"))])
+(deftest verify-convert-ip-behavior
+  ;;TODO - I would like to put out a message when someone doesnt provide an IP instead of returning a 404. I don't know how to do this right now.
+  ;;(testing "gracefully handle missing ip"
+  ;;  (let [response (app (request :get "/city-state/"))]
+  ;;    (is (= (:status response) "There are no city-states for a null IP."))))
+  (testing "should not accept IPs with only 1 octet"
+      (is (= (verify-ip "192") 0)))
+;;  (testing "should not accept IPs with only 2 octet"
+;;      (is (= (verify-ip "192.193") 0)))
+;;  (testing "should not accept IPs with only 3 octet"
+;;      (is (= (verify-ip "192.193.123") 0)))
 )
