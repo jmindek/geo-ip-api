@@ -14,7 +14,7 @@
       (is (= (:status response) 404))))
 
   (testing "get city-state route exists"
-    (let [response (app (request :get "/city-state/1"))]
+    (let [response (app (request :get "/city-state/192.182.16.42"))]
       (is (= (:status response) 200))))
   
   (testing "documentation route exists"
