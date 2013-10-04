@@ -1,2 +1,3 @@
 language: clojure
-script: lein with-profile dev test
+lein: lein2
+script: lein2 with-profile dev test
