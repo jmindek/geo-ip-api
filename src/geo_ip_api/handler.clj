@@ -13,7 +13,6 @@
   (let [good-ip (verify-ip ip)]
     (cond 
           (true? good-ip) "Good IP. TODO - Retrieve city-state."
-;          :else (parse-int "400")
            :else (hash-map :status 404 :headers "{\"Content-Type\" \"text/html; charset=utf-8\"}" 
                            :body "Invalid IP address")
           )))
