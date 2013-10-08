@@ -3,7 +3,8 @@
   :url "http://github.com/jmindek/geo-ip-api.git"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [compojure "1.1.5"]
-                 [ring "1.2.0"]]
+                 [ring "1.2.0"]
+                 [com.maxmind.geoip/geoip-api "1.2.11"]]
   :plugins [[lein-ring "0.8.7"],[lein-ring "0.8.7"]]
   :ring {:handler geo-ip-api.handler/app}
   :profiles
