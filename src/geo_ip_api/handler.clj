@@ -1,7 +1,8 @@
 (ns geo-ip-api.handler
   (:use compojure.core)
   (:require [compojure.handler :as handler]
-            [compojure.route :as route]))
+            [compojure.route :as route])
+  (:import [com.maxmind.geoip]))
 
 (defn parse-int [s]
   (Integer. (re-find #"[0-9]+" s)))
@@ -12,10 +13,7 @@
 (defn fetch-city-state [ip]
   (let [good-ip (verify-ip ip)]
     (cond 
-          (true? good-ip) "Good IP. TODO - Retrieve city-state."
-           :else (hash-map :status 404 :headers "{\"Content-Type\" \"text/html; charset=utf-8\"}" 
-                           :body "Invalid IP address")
-          )))
+          (true? good-ip) "Good IP. TODO - Retrieve city-state.")))
 
 (defroutes app-routes
   (GET "/" [] "Hello World")

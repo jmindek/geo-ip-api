@@ -1,7 +1,8 @@
 (ns geo-ip-api.test.handler
   (:use clojure.test
         ring.mock.request  
-        geo-ip-api.handler))
+        geo-ip-api.handler
+        geo-ip-api.data-source))
 
 (deftest validate-available-routes
   (testing "main route"
@@ -51,5 +52,7 @@
   (testing "returns a 404 status on bad IP address"
     (let [response (app (request :get "/city-state/192.192.3"))]
       (is (= 404 (:status response)))))
+  (testing "68.75.30.67 returns = city Columbus"
+    (is (= "Columbus" (.getName (.getCity (get-location "68.75.30.67"))))))
 )
 
