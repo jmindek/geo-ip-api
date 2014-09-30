@@ -1,7 +1,7 @@
 (ns geo-ip-api.data-source
   (:import (com.maxmind.geoip2 DatabaseReader
              DatabaseReader$Builder)
-           (java.net.InetAddress)))
+           (java.net InetAddress)))
 
 (def db (clojure.java.io/file "resources/data/GeoLite2-City.mmdb"))
 ;; was helpful to see the DatabaseReader class to determine that
