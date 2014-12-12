@@ -2,6 +2,12 @@
 
 Clojure web API to extract city and state from user's IP address.
 
+## Emacs for the win
+
+Awesome
+
+## Add new section
+
 ## Prerequisites
 
 You will need [Leiningen][1] 1.7.0 or above installed.
