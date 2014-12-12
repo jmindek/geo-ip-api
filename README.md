@@ -4,7 +4,7 @@ Clojure web API to extract city and state from user's IP address.
 
 ## Emacs for the win
 
-Awesome
+Awesome this should generate a conflict.
 
 ## Add new section
 
